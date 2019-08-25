@@ -2,15 +2,16 @@
   "name": "demo1.store",
   "version": "1.0.0",
   "description": "client for sso",
-  "main": "app.js",
+  "main": "functions/server.js",
   "scripts": {
     "start": "node app.js",
-    "build": "netlify-lambda build"
+    "build": "netlify-lambda build express"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "netlify-lambda": "^0.4.0",
+    "serverless-http": "^1.6.0",
     "axios": "^0.18.0",
     "cookie-session": "^1.3.3",
     "express": "^4.16.4",

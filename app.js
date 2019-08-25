@@ -8,7 +8,7 @@ var FormData = require('form-data');
 
 var clientId = "ece071df68ed64b2"
 var clientSecret = "c85bafe569bf4e208608e4a86c819e3b"
-var redirectUri = "http://demo1.store/callback"
+var redirectUri = "https://demo1sso.herokuapp.com/callback"
 var responseType = "code"
 var state = ""
 var scope = "all"
@@ -106,8 +106,3 @@ app.get('/logout', function (req, res) {
  
 console.log('start in port '+PORT)
 app.listen(PORT)
-// 'use strict';
-
-// const app = require('./express/server');
-
-// app.listen(3001, () => console.log('Local app listening on port 3001!'));

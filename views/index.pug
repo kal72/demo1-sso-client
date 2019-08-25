@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible", content="ie=edge")
+		title Selamat datang | Home
+	body
+	h1 Login Berhasil
+	br
+	h4 Name : #{data.user.name}
+	h4 Alamat : #{data.user.address}
+	h4 Email : #{data.user.email}
+	h4 Phone : #{data.user.phone}
+	br
+	p token : #{token.access_token}
+	p refresh : #{token.refresh_token}
+	p expired : #{token.expires_in} second
+	p scope : #{token.scope}
+	p token_type : #{token.token_type} 
+
+br
+br
+
+<a href="/logout">
+	l Logout
+</a>

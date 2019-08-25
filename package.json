@@ -1,0 +1,19 @@
+{
+  "name": "domain1.com",
+  "version": "1.0.0",
+  "description": "client for sso",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cookie-session": "^1.3.3",
+    "express": "^4.16.4",
+    "form-data": "^2.3.3",
+    "pug": "^2.0.3",
+    "randomstring": "^1.1.5"
+  }
+}

@@ -30,7 +30,7 @@ app.use(cookieSession({
   name: 'csid',
   keys: ['!secret!@#'],
 }))
-app.use('/static', express.static('../public'))
+app.use('/static', express.static('/public'))
 
 router.get('/', function (req, res) {
   if (req.session.loginstate == undefined){

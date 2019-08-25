@@ -102,8 +102,8 @@
 //   res.redirect(302, '/login')
 // })
  
-// console.log('start in port 3002')
-// app.listen(3002)
+// console.log('start in port 3001')
+// app.listen(3001)
 'use strict';
 
 const app = require('./express/server');

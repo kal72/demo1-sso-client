@@ -6,19 +6,19 @@ const axios = require('axios');
 var FormData = require('form-data');
 
 
-var clientId = "8ebb26c0ce89bbdb"
-var clientSecret = "32579e7dbc464e0bb4b42f20f3b28564"
-var redirectUri = "http://domain2.com:3002/callback"
+var clientId = "ece071df68ed64b2"
+var clientSecret = "c85bafe569bf4e208608e4a86c819e3b"
+var redirectUri = "http://demo1.store/callback"
 var responseType = "code"
 var state = ""
 var scope = "all"
 var grantType = "authorization_code"
-var tokenUrl = "http://dashboard.aino.id:8080/api/v1/oauth2/token"
-var userInfo = "http://dashboard.aino.id:8080/api/v1/userinfo"
+var tokenUrl = "https://racksso.herokuapp.com/api/v1/oauth2/token"
+var userInfo = "https://racksso.herokuapp.com/api/v1/userinfo"
 var responseToken
 
 function authorizeUrl(pState){
-  return "http://dashboard.aino.id:8080/oauth2/authorize?client_id="+clientId+"&redirect_uri="+redirectUri+"&response_type="+responseType+"&scope="+scope+"&state="+pState
+  return "https://racksso.herokuapp.com/oauth2/authorize?client_id="+clientId+"&redirect_uri="+redirectUri+"&response_type="+responseType+"&scope="+scope+"&state="+pState
 }
  
 app.set('view engine', 'pug')

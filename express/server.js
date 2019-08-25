@@ -3,7 +3,6 @@
 var express = require('express')
 const serverless = require('serverless-http');
 var app = express()
-const router = express.Router();
 var randomstring = require("randomstring");
 var cookieSession = require('cookie-session')
 const axios = require('axios');
@@ -32,7 +31,7 @@ app.use(cookieSession({
 }))
 app.use('/static', express.static('public'))
 
-router.get('/', function (req, res) {
+app.get('/', function (req, res) {
   if (req.session.loginstate == undefined){
     res.redirect(302, '/login')
   }else{
@@ -54,7 +53,7 @@ router.get('/', function (req, res) {
     });
   }  
 })
-router.get('/login', function (req, res) {
+app.get('/login', function (req, res) {
   if (req.session.loginstate != undefined){
     res.redirect(302, '/')
   }
@@ -62,12 +61,12 @@ router.get('/login', function (req, res) {
   res.render('login', { loginDashboard: '/auth/dashboard' })
 })
 
-router.get('/auth/dashboard', function (req, res) {
+app.get('/auth/dashboard', function (req, res) {
   state = randomstring.generate(7)
   res.redirect(302, authorizeUrl(state))
 })
 
-router.get('/callback', function (req, res) {
+app.get('/callback', function (req, res) {
   var qCode = req.query.code
   var qState = req.query.state
   console.log("code: ", qCode)
@@ -100,13 +99,13 @@ router.get('/callback', function (req, res) {
   }
 })
 
-router.get('/logout', function (req, res) {
+app.get('/logout', function (req, res) {
   req.session = undefined
   
   res.redirect(302, '/login')
 })
 
-app.use('/.netlify/functions/server', router);  // path must route to lambda
+// app.use('/.netlify/functions/server', app);  // path must route to lambda
 
 module.exports = app;
 module.exports.handler = serverless(app);

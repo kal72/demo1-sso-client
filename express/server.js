@@ -105,7 +105,10 @@ app.get('/logout', function (req, res) {
   res.redirect(302, '/login')
 })
 
-app.use('/.netlify/functions/server', app);  // path must route to lambda
-
-module.exports = app;
-module.exports.handler = serverless(app);
+const handler = serverless(app);
+module.exports.handler = async (event, context) => {
+  // you can do other things here
+  const result = await handler(event, context);
+  // and here
+  return result;
+};

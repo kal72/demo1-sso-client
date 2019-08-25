@@ -3,6 +3,7 @@
 var express = require('express')
 const serverless = require('serverless-http');
 var app = express()
+const router = express.Router();
 var randomstring = require("randomstring");
 var cookieSession = require('cookie-session')
 const axios = require('axios');
@@ -31,7 +32,7 @@ app.use(cookieSession({
 }))
 app.use('/static', express.static('../public'))
 
-app.get('/', function (req, res) {
+router.get('/', function (req, res) {
   if (req.session.loginstate == undefined){
     res.redirect(302, '/login')
   }else{
@@ -53,7 +54,7 @@ app.get('/', function (req, res) {
     });
   }  
 })
-app.get('/login', function (req, res) {
+router.get('/login', function (req, res) {
   if (req.session.loginstate != undefined){
     res.redirect(302, '/')
   }
@@ -61,12 +62,12 @@ app.get('/login', function (req, res) {
   res.render('login', { loginDashboard: '/auth/dashboard' })
 })
 
-app.get('/auth/dashboard', function (req, res) {
+router.get('/auth/dashboard', function (req, res) {
   state = randomstring.generate(7)
   res.redirect(302, authorizeUrl(state))
 })
 
-app.get('/callback', function (req, res) {
+router.get('/callback', function (req, res) {
   var qCode = req.query.code
   var qState = req.query.state
   console.log("code: ", qCode)
@@ -99,7 +100,7 @@ app.get('/callback', function (req, res) {
   }
 })
 
-app.get('/logout', function (req, res) {
+router.get('/logout', function (req, res) {
   req.session = undefined
   
   res.redirect(302, '/login')

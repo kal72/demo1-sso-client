@@ -1,14 +1,16 @@
 {
-  "name": "domain1.com",
+  "name": "demo1.store",
   "version": "1.0.0",
   "description": "client for sso",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "build": "netlify-lambda build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "netlify-lambda": "^0.4.0",
     "axios": "^0.18.0",
     "cookie-session": "^1.3.3",
     "express": "^4.16.4",

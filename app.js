@@ -17,6 +17,8 @@ var tokenUrl = "https://racksso.herokuapp.com/api/v1/oauth2/token"
 var userInfo = "https://racksso.herokuapp.com/api/v1/userinfo"
 var responseToken
 
+const PORT = process.env.PORT || 3001
+
 function authorizeUrl(pState){
   return "https://racksso.herokuapp.com/oauth2/authorize?client_id="+clientId+"&redirect_uri="+redirectUri+"&response_type="+responseType+"&scope="+scope+"&state="+pState
 }
@@ -102,8 +104,8 @@ app.get('/logout', function (req, res) {
   res.redirect(302, '/login')
 })
  
-console.log('start in port 3001')
-app.listen(3001)
+console.log('start in port '+PORT)
+app.listen(PORT)
 // 'use strict';
 
 // const app = require('./express/server');
